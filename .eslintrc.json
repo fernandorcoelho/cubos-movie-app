@@ -34,7 +34,7 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "off",
     "no-console": [
-      "error"
+      "warn"
     ],
     "no-use-before-define": "off",
     "react/react-in-jsx-scope": "off",

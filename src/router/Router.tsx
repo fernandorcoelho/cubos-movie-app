@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import MovieDetailPage from 'pages/MovieDetailPage';
 import MoviesPage from 'pages/MoviesPage';
-// import MovieDetailPage from 'pages/MovieDetailPage';
 
 const Router: React.FC = () => {
   return (
