@@ -1,14 +1,24 @@
 import React from 'react';
-import { Provider } from 'react-redux';
 
+import Header from 'components/Header';
+import { GenreProvider } from 'contexts/GenreContext';
+import { MovieProvider } from 'contexts/MoviesContext';
 import Router from 'router/Router';
-import store from 'store/store';
+import { ThemeProvider } from 'styled-components';
+import GlobalStyle from 'styles/global';
+import theme from 'styles/theme';
 
 const App: React.FC = () => {
   return (
-    <Provider store={store}>
-      <Router />
-    </Provider>
+    <ThemeProvider theme={theme}>
+      <GenreProvider>
+        <MovieProvider>
+          <Header />
+          <Router />
+          <GlobalStyle />
+        </MovieProvider>
+      </GenreProvider>
+    </ThemeProvider>
   );
 };
 

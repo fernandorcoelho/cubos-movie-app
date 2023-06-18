@@ -9,6 +9,8 @@ const api = axios.create({
     'Content-Type': 'application/json',
   },
   params: {
+    include_adult: false,
+    language: 'pt-BR',
     api_key: apiConfig.apiKey,
   },
 });

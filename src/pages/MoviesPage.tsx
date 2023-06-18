@@ -1,47 +1,66 @@
-// src/pages/MoviesPage.tsx
 import React, { useEffect, useState } from 'react';
 
-import { api } from '../services/api/axiosClient';
-
-type Movie = {
-  id: number;
-  title: string;
-  poster_path: string;
-  release_date: string;
-  overview: string;
-  vote_average: number;
-  genres: Array<{
-    id: number;
-    name: string;
-  }>;
-};
+import Feedback from 'components/Feedback';
+import Loading from 'components/Loading';
+import MovieCard from 'components/MovieCard';
+import Pagination from 'components/Pagination';
+import { SearchInput } from 'components/SearchInput';
+import useDebounce from 'hooks/useDebounce';
+import { useMovies } from 'hooks/useMovies';
+import * as S from 'styles/MoviesPage';
 
 const MoviesPage = () => {
-  const [movies, setMovies] = useState<Movie[]>([]);
-  const [loading, setLoading] = useState(false);
+  const { displayedMovies, loading, error, searchMovies } = useMovies();
+  const [query, setQuery] = useState('');
+
+  const debounceQuery = useDebounce(query, 800);
 
   useEffect(() => {
-    const fetchMovies = async () => {
-      setLoading(true);
-      try {
-        const response = await api.get('/search/movie');
-        console.log(response);
-        // setMovies(data);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
-    };
+    searchMovies(debounceQuery);
+  }, [debounceQuery]);
 
-    fetchMovies();
-  }, []);
-
-  if (loading) {
-    return <div>Loading...</div>;
+  if (error) {
+    return <Feedback>Um erro inesperado ocorreu! {error}</Feedback>;
   }
 
-  return <div>MoviesPage</div>;
+  const onSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value);
+  };
+
+  return (
+    <S.Container>
+      <SearchInput
+        placeholder="Busque por um filme por nome, ano ou gênero..."
+        onChange={onSearchChange}
+        value={query}
+      />
+
+      {displayedMovies.length === 0 && !loading && (
+        <Feedback>Nenhum resultado foi encontrado</Feedback>
+      )}
+
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          {displayedMovies.map((movie) => (
+            <MovieCard
+              key={movie?.id}
+              id={movie?.id}
+              genres={movie?.genres}
+              overview={movie?.overview}
+              poster_path={movie?.poster_path}
+              release_date={movie?.release_date}
+              title={movie?.title}
+              vote_average={movie?.vote_average}
+            />
+          ))}
+
+          <Pagination />
+        </>
+      )}
+    </S.Container>
+  );
 };
 
 export default MoviesPage;
