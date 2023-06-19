@@ -33,16 +33,12 @@
     ],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "off",
-    "no-console": [
-      "warn"
-    ],
+    "no-console": ["warn"],
     "no-use-before-define": "off",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
-    "prettier/prettier": [
-      "warn"
-    ],
+    "prettier/prettier": ["warn"],
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/no-use-before-define": "off",
     "react/jsx-filename-extension": "off",
@@ -52,16 +48,7 @@
       "warn",
       {
         "newlinesBetween": "always",
-        "groups": [
-          "/^react/",
-          "module",
-          "/^@shared/",
-          [
-            "parent",
-            "sibling",
-            "index"
-          ]
-        ],
+        "groups": ["/^react/", "module", "/^@shared/", ["parent", "sibling", "index"]],
         "alphabetize": {
           "order": "asc",
           "ignoreCase": true

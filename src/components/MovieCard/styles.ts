@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
+interface ImageProps {
+  src: string;
+}
+
 export const MovieCardContainer = styled.button`
+  width: 100%;
   background-color: transparent;
   margin-top: 40px;
   text-align: left;
@@ -17,27 +22,26 @@ export const Container = styled.div`
   }
 `;
 
-export const Image = styled.div<{ src: string }>`
-  background-image: url(${(props) => props.src});
+export const Image = styled.div<ImageProps>`
+  background-image: url(${({ src }) => src});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  min-width: 300px;
-  min-height: 500px;
-  flex-shrink: 0;
-
-  @media screen and (max-width: 768px) {
-    min-width: 200px;
-    min-height: 100px;
-    flex-shrink: 0;
-  }
+  width: 100%;
 
   @media screen and (max-width: 600px) {
-    width: 100%;
-    min-width: 0;
+    max-width: 100%;
     min-height: 750px;
-    flex-shrink: 1;
-    flex-grow: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    max-width: 300px;
+    min-height: 500px;
+  }
+
+  @media screen and (min-width: 1400px) {
+    max-width: 500px;
+    min-height: 700px;
   }
 `;
 
@@ -46,22 +50,21 @@ export const ImageNotFound = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.gray.bg};
-
-  min-width: 300px;
-  min-height: 750px;
-  flex-shrink: 0;
-
-  @media screen and (max-width: 768px) {
-    min-width: 200px;
-    min-height: 100px;
-  }
+  width: 100%;
 
   @media screen and (max-width: 600px) {
-    width: 100%;
-    min-width: 0;
+    max-width: 100%;
     min-height: 750px;
-    flex-shrink: 1;
-    flex-grow: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    max-width: 300px;
+    min-height: 500px;
+  }
+
+  @media screen and (min-width: 1400px) {
+    max-width: 500px;
+    min-height: 700px;
   }
 `;
 
@@ -83,20 +86,17 @@ export const Header = styled.header`
 
   display: flex;
   align-items: flex-end;
+
   padding-left: 110px;
+  padding-right: 20px;
+  padding-top: 20px;
 
   width: 100%;
   min-height: 70px;
-  height: 70px;
   background-color: ${({ theme }) => theme.colors.primary};
 `;
 
 export const Title = styled.h2`
-  max-width: 95%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-
   font-weight: 100;
   margin-bottom: 5px;
   color: ${({ theme }) => theme.colors.secondary};
@@ -145,7 +145,7 @@ export const DetailsContainer = styled.div`
   align-items: flex-start;
   justify-content: center;
 
-  padding: 60px 30px 40px;
+  padding: 20px 30px 60px;
   line-height: 140%;
   background-color: ${({ theme }) => theme.colors.gray.bg};
 `;
@@ -162,6 +162,7 @@ export const Date = styled.p`
 `;
 
 export const Overview = styled.p`
+  margin: auto;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.gray.text};
 `;
@@ -170,8 +171,9 @@ export const BadgesContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
 
-  margin-top: 25px;
+  margin-top: auto;
 `;
 
 export const Badge = styled.div`
