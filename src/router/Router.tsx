@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-import MovieDetailPage from 'pages/MovieDetailPage';
+import MovieDetailsPage from 'pages/MovieDetailsPage';
 import MoviesPage from 'pages/MoviesPage';
 
 const Router: React.FC = () => {
@@ -10,7 +10,7 @@ const Router: React.FC = () => {
       <Routes>
         <Route path="/" element={<Navigate to="/movies" />} />
         <Route index path="/movies" element={<MoviesPage />} />
-        <Route path="/movies/:id" element={<MovieDetailPage />} />
+        <Route path="/movies/:id" element={<MovieDetailsPage />} />
       </Routes>
     </BrowserRouter>
   );

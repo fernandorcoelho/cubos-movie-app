@@ -1,12 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { MovieProps } from 'interfaces/moviesResponseDTO';
 import { formatDate } from 'utils/formatDate';
+import { getPosterSrc } from 'utils/getPosterSrc';
+import { getVoteAveragePercentage } from 'utils/getVoteAveragePercentage';
 
 import * as S from './styles';
 
 const IMAGE_WIDTH = 500;
-const IMAGE_PATH = 'https://image.tmdb.org/t/p/w';
 
 const MovieCard: React.FC<MovieProps> = ({
   id,
@@ -17,47 +19,50 @@ const MovieCard: React.FC<MovieProps> = ({
   title,
   vote_average,
 }: MovieProps) => {
-  const imageSrc = `${IMAGE_PATH}${IMAGE_WIDTH}${poster_path}`;
-  const vonteAveragePercentage = Math.round(vote_average * 10);
+  const navigate = useNavigate();
+
+  const goToMovieDetailsPage = () => {
+    navigate(`/movies/${id}`);
+  };
 
   return (
-    <S.Container>
-      {!!poster_path ? (
-        <S.Image src={imageSrc} />
-      ) : (
-        <S.ImageNotFound>
-          <S.ImageNotFoundText>Imagem não encontrada</S.ImageNotFoundText>
-        </S.ImageNotFound>
-      )}
+    <S.MovieCardContainer onClick={goToMovieDetailsPage}>
+      <S.Container>
+        {!!poster_path ? (
+          <S.Image src={getPosterSrc(IMAGE_WIDTH, poster_path)} />
+        ) : (
+          <S.ImageNotFound>
+            <S.ImageNotFoundText>Imagem não encontrada</S.ImageNotFoundText>
+          </S.ImageNotFound>
+        )}
 
-      <S.ContentContainer>
-        <S.Header>
-          <S.Title>{title ?? 'Título não encontrado'}</S.Title>
+        <S.ContentContainer>
+          <S.Header>
+            <S.Title>{title ?? 'Título não encontrado'}</S.Title>
 
-          <S.VoteAverageContainer>
-            <S.VoteAverageWrapper>
-              <S.VoteAverageText>
-                {vonteAveragePercentage ? `${vonteAveragePercentage}%` : '-'}
-              </S.VoteAverageText>
-            </S.VoteAverageWrapper>
-          </S.VoteAverageContainer>
-        </S.Header>
+            <S.VoteAverageContainer>
+              <S.VoteAverageWrapper>
+                <S.VoteAverageText>{getVoteAveragePercentage(vote_average)}</S.VoteAverageText>
+              </S.VoteAverageWrapper>
+            </S.VoteAverageContainer>
+          </S.Header>
 
-        <S.DetailsContainer>
-          <S.Date>{release_date ? formatDate(release_date) : 'Data não encontrada'}</S.Date>
+          <S.DetailsContainer>
+            <S.Date>{formatDate(release_date)}</S.Date>
 
-          <S.Overview>{!!overview ? overview : 'Sinópse não encontrada'}</S.Overview>
+            <S.Overview>{!!overview ? overview : 'Sinópse não encontrada'}</S.Overview>
 
-          <S.BadgesContainer>
-            {genres.map((genre) => (
-              <S.Badge key={genre}>
-                <S.BadgeText>{genre}</S.BadgeText>
-              </S.Badge>
-            ))}
-          </S.BadgesContainer>
-        </S.DetailsContainer>
-      </S.ContentContainer>
-    </S.Container>
+            <S.BadgesContainer>
+              {genres.map((genre) => (
+                <S.Badge key={genre}>
+                  <S.BadgeText>{genre}</S.BadgeText>
+                </S.Badge>
+              ))}
+            </S.BadgesContainer>
+          </S.DetailsContainer>
+        </S.ContentContainer>
+      </S.Container>
+    </S.MovieCardContainer>
   );
 };
 

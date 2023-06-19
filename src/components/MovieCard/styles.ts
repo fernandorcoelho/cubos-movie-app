@@ -1,10 +1,20 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+
+export const MovieCardContainer = styled.button`
+  background-color: transparent;
+  margin-top: 40px;
+  text-align: left;
+  font-size: 1rem;
+`;
 
 export const Container = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
-  margin-top: 40px;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+  }
 `;
 
 export const Image = styled.div<{ src: string }>`
@@ -12,18 +22,47 @@ export const Image = styled.div<{ src: string }>`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: auto;
-  width: 300px;
+  min-width: 300px;
+  min-height: 500px;
+  flex-shrink: 0;
+
+  @media screen and (max-width: 768px) {
+    min-width: 200px;
+    min-height: 100px;
+    flex-shrink: 0;
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    min-width: 0;
+    min-height: 750px;
+    flex-shrink: 1;
+    flex-grow: 0;
+  }
 `;
 
 export const ImageNotFound = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  height: 350px;
-  width: 300px;
   background-color: ${({ theme }) => theme.colors.gray.bg};
+
+  min-width: 300px;
+  min-height: 750px;
+  flex-shrink: 0;
+
+  @media screen and (max-width: 768px) {
+    min-width: 200px;
+    min-height: 100px;
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    min-width: 0;
+    min-height: 750px;
+    flex-shrink: 1;
+    flex-grow: 0;
+  }
 `;
 
 export const ImageNotFoundText = styled.span`
@@ -36,6 +75,7 @@ export const ContentContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 `;
 
 export const Header = styled.header`
@@ -141,11 +181,8 @@ export const Badge = styled.div`
   padding: 5px 10px;
 
   border-radius: 50px;
-
-  ${({ theme }) => css`
-    border: 2px solid ${theme.colors.primary};
-    background-color: ${theme.colors.white};
-  `}
+  background-color: white;
+  border: 2px solid ${({ theme }) => theme.colors.primary};
 `;
 
 export const BadgeText = styled.h4`

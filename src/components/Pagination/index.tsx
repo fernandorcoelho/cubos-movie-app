@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useMovies } from 'hooks/useMovies';
 
-import { Container, PageButton } from './styles';
+import { Container, PageButton, PageButtonText } from './styles';
 
 const Pagination = () => {
   const { page: currentPage, setPage: setCurrentPage, totalPages } = useMovies();
@@ -20,7 +20,7 @@ const Pagination = () => {
         disabled={currentPage === 1}
         onClick={(e) => handlePageChange(e, currentPage - 1)}
       >
-        Previous
+        <PageButtonText>Previous</PageButtonText>
       </PageButton>
       <span>
         Page {currentPage} of {totalPages}
@@ -29,7 +29,7 @@ const Pagination = () => {
         disabled={currentPage === totalPages}
         onClick={(e) => handlePageChange(e, currentPage + 1)}
       >
-        Next
+        <PageButtonText>Next</PageButtonText>
       </PageButton>
     </Container>
   );

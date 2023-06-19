@@ -17,14 +17,13 @@ const GlobalStyle = createGlobalStyle`
     background: #fff;
     font-family: 'Lato', sans-serif;
     font-size: 1em;
-    padding: 0 10%;
   }
 
   #root {
     min-height: 100vh;
   }
 
-  h1, h2, h3, h4, h5, h6, button, input {
+  h1, h2, h3, h4, h5, h6, input {
     font-family: 'Abel', sans-serif;
   }
 
@@ -38,6 +37,7 @@ const GlobalStyle = createGlobalStyle`
 
   button {
     cursor: pointer;
+    border: none;
   }
 
   a {

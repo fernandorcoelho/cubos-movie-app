@@ -4,7 +4,6 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
     ],
     "allowJs": true,
     "skipLibCheck": true,
@@ -19,38 +18,11 @@
     "jsx": "react",
     "baseUrl": "./src",
     "downlevelIteration": true,
-    "paths": {
-      "@utils/*": [
-        "./src/utils/*"
-      ],
-      "@assets/*": [
-        "./src/assets/*"
-      ],
-      "@hooks/*": [
-        "./src/hooks/*"
-      ],
-      "@interfaces/*": [
-        "./src/interfaces/*"
-      ],
-      "@shared/*": [
-        "./src/shared/*"
-      ],
-      "@services/*": [
-        "./src/services/*"
-      ],
-      "@styles/*": [
-        "./src/styles/*"
-      ],
-      "@contexts/*": [
-        "./src/contexts/*"
-      ]
-    },
     "incremental": true
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
-    "src/api/server.js"
   ],
   "exclude": [
     "node_modules"

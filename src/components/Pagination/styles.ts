@@ -7,16 +7,23 @@ export const Container = styled.div`
   margin: 40px 0;
 `;
 
-export const PageButton = styled.button`
-  background-color: #4caf50;
-  border: none;
+export const PageButtonText = styled.span`
   color: white;
-  padding: 15px 32px;
-  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1.4px;
+  font-size: 1.1rem;
   text-decoration: none;
+`;
+
+export const PageButton = styled.button`
+  background-color: ${({ theme }) => theme.colors.primary};
+  font-family: 'Abel', sans-serif;
+
+  padding: 15px 20px;
+  border-radius: 10px;
+  text-align: center;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  margin: 0 10px;
   cursor: pointer;
   transition-duration: 0.4s;
 
@@ -26,6 +33,7 @@ export const PageButton = styled.button`
   }
 
   &:not(:disabled):hover {
-    background-color: #45a049;
+    background-color: ${({ theme }) => theme.colors.primary};
+    opacity: 0.9;
   }
 `;

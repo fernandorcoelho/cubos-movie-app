@@ -7,7 +7,7 @@ import Pagination from 'components/Pagination';
 import { SearchInput } from 'components/SearchInput';
 import useDebounce from 'hooks/useDebounce';
 import { useMovies } from 'hooks/useMovies';
-import * as S from 'styles/MoviesPage';
+import { Container } from 'styles/MoviesPage';
 
 const MoviesPage = () => {
   const { displayedMovies, loading, error, searchMovies } = useMovies();
@@ -19,16 +19,18 @@ const MoviesPage = () => {
     searchMovies(debounceQuery);
   }, [debounceQuery]);
 
-  if (error) {
-    return <Feedback>Um erro inesperado ocorreu! {error}</Feedback>;
-  }
-
   const onSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
   };
 
+  if (error) {
+    return <Feedback>Um erro inesperado ocorreu! {error}</Feedback>;
+  }
+
+  // TODO encaixar as imagens, estão sendo cortadas.
+
   return (
-    <S.Container>
+    <Container>
       <SearchInput
         placeholder="Busque por um filme por nome, ano ou gênero..."
         onChange={onSearchChange}
@@ -59,7 +61,7 @@ const MoviesPage = () => {
           <Pagination />
         </>
       )}
-    </S.Container>
+    </Container>
   );
 };
 

@@ -7,10 +7,4 @@ export const Container = styled.main`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  padding: 0 10%;
-
-  @media screen and (max-width: 480px) {
-    padding: 0 4%;
-  }
 `;
