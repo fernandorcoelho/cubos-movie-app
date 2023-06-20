@@ -85,8 +85,6 @@ export const Table = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 0.8em;
-  row-gap: 0.4rem;
-  column-gap: 2em;
   align-items: center;
   width: 100%;
 
@@ -179,7 +177,10 @@ export const Image = styled.div<ImageProps>`
   background-size: cover;
   background-position: center;
   width: 100%;
-  aspect-ratio: 2/3;
+
+  @media screen and (max-width: 1024px) {
+    aspect-ratio: 2/3;
+  }
 
   @media screen and (max-width: 600px) {
     min-height: 750px;
@@ -189,9 +190,10 @@ export const Image = styled.div<ImageProps>`
     min-height: 500px;
   }
 
-  @media screen and (min-width: 1400px) {
+  @media screen and (min-width: 1500px) {
     max-width: 700px;
     min-height: 700px;
+    aspect-ratio: 2/3;
   }
 `;
 
@@ -201,18 +203,23 @@ export const ImageNotFound = styled.div`
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.gray.grayBackground};
   width: 100%;
-  aspect-ratio: 2/3;
+
+  @media screen and (max-width: 1024px) {
+    aspect-ratio: 2/3;
+  }
 
   @media screen and (max-width: 600px) {
     min-height: 750px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 601px) {
     min-height: 500px;
   }
 
-  @media screen and (min-width: 1400px) {
+  @media screen and (min-width: 1500px) {
+    max-width: 700px;
     min-height: 700px;
+    aspect-ratio: 2/3;
   }
 `;
 

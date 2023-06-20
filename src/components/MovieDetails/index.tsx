@@ -29,8 +29,6 @@ const MovieDetails: React.FC<MovieDetailsResponseDTO> = ({
   vote_average,
   videos,
 }: MovieDetailsResponseDTO) => {
-  console.log(getVideoSrc(videos?.results[0].key));
-
   return (
     <S.Conatiner>
       <S.ContentConatiner>
