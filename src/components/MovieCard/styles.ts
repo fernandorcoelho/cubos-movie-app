@@ -17,7 +17,7 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 992px) {
     flex-direction: column;
   }
 `;
@@ -28,20 +28,10 @@ export const Image = styled.div<ImageProps>`
   background-size: cover;
   background-position: center;
   width: 100%;
-
-  @media screen and (max-width: 600px) {
-    max-width: 100%;
-    min-height: 750px;
-  }
-
-  @media screen and (min-width: 601px) {
-    max-width: 300px;
-    min-height: 500px;
-  }
+  aspect-ratio: 2/3;
 
   @media screen and (min-width: 1400px) {
     max-width: 500px;
-    min-height: 700px;
   }
 `;
 
@@ -52,23 +42,15 @@ export const ImageNotFound = styled.div`
   background-color: ${({ theme }) => theme.colors.gray.grayBackground};
   width: 100%;
 
-  @media screen and (max-width: 600px) {
-    max-width: 100%;
-    min-height: 750px;
-  }
-
-  @media screen and (min-width: 601px) {
-    max-width: 300px;
-    min-height: 500px;
-  }
+  aspect-ratio: 2/3;
 
   @media screen and (min-width: 1400px) {
     max-width: 500px;
-    min-height: 700px;
   }
 `;
 
 export const ImageNotFoundText = styled.span`
+  font-size: 1.4rem;
   text-align: center;
   color: ${({ theme }) => theme.colors.gray.mediumGray};
   font-weight: bold;

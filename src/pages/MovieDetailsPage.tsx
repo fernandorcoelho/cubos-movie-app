@@ -16,15 +16,11 @@ const MovieDetailsPage: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  // TODO
-  // Se videos.results[0].site não for YouTube, retornar que vídeo não disponível
-
   const fetchMovieDetails = async () => {
     setLoading(true);
     try {
       const response: MovieDetailsResponseDTO = await api.get(`/movie/${id}`, {
         params: {
-          append_to_response: 'videos',
           language: 'pt-BR',
         },
       });
@@ -42,7 +38,13 @@ const MovieDetailsPage: React.FC = () => {
   }, []);
 
   if (error) {
-    return <Feedback>Um erro inesperado ocorreu! {error}</Feedback>;
+    return (
+      <Feedback>
+        Um erro inesperado ocorreu!
+        <br />
+        {error}
+      </Feedback>
+    );
   }
 
   return (

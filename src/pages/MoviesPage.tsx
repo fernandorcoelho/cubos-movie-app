@@ -23,8 +23,20 @@ const MoviesPage = () => {
     setQuery(e.target.value);
   };
 
+  const onSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      searchMovies(query);
+    }
+  };
+
   if (error) {
-    return <Feedback>Um erro inesperado ocorreu! {error}</Feedback>;
+    return (
+      <Feedback>
+        Um erro inesperado ocorreu!
+        <br />
+        {error}
+      </Feedback>
+    );
   }
 
   return (
@@ -32,6 +44,7 @@ const MoviesPage = () => {
       <SearchInput
         placeholder="Busque por um filme por nome, ano ou gênero..."
         onChange={onSearchChange}
+        onKeyDown={onSearchKeyDown}
         value={query}
       />
 

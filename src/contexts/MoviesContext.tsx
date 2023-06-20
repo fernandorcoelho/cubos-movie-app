@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 
 import { useGenres } from 'hooks/useGenres';
 import {
@@ -42,9 +42,9 @@ export const MovieProvider: React.FC<MovieProviderProps> = ({ children }) => {
 
   const mapResults = (results: MovieResultsProps[]) => {
     return results.map((movie: MovieResultsProps) => {
-      const genreNames = movie.genre_ids?.map(
-        (id: number) => genres.find((genre) => genre.id === id)?.name,
-      );
+      const genreNames =
+        movie.genre_ids &&
+        movie.genre_ids?.map((id: number) => genres.find((genre) => genre.id === id)?.name);
 
       return { ...movie, genres: genreNames };
     });
@@ -52,7 +52,7 @@ export const MovieProvider: React.FC<MovieProviderProps> = ({ children }) => {
 
   const updateWithGenres = () => {
     const genreIdsArray = displayedMovies
-      .filter((movie) => movie.genres.includes(query))
+      .filter((movie) => movie.genres && movie.genres?.includes(query))
       .map((movie) => movie.genre_ids);
 
     const genreIds = [].concat(...genreIdsArray).join(',');
@@ -77,7 +77,7 @@ export const MovieProvider: React.FC<MovieProviderProps> = ({ children }) => {
           query,
           page,
           with_genres: withGenres,
-          primary_release_year: parseInt(query),
+          primary_release_year: Number.isNaN(parseInt(query)) ? '' : parseInt(query),
         },
       });
 

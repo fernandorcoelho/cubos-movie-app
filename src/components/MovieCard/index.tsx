@@ -43,20 +43,24 @@ const MovieCard: React.FC<MovieProps> = ({
 
             <S.VoteAverageContainer>
               <S.VoteAverageWrapper>
-                <S.VoteAverageText>{getVoteAveragePercentage(vote_average)}</S.VoteAverageText>
+                <S.VoteAverageText>
+                  {vote_average ? getVoteAveragePercentage(vote_average) : '-%'}
+                </S.VoteAverageText>
               </S.VoteAverageWrapper>
             </S.VoteAverageContainer>
           </S.Header>
 
           <S.DetailsContainer>
-            <S.Date>{formatDate(release_date)}</S.Date>
+            <S.Date>{!!release_date ? formatDate(release_date) : '--/--/----'}</S.Date>
 
             <S.Overview>{!!overview ? overview : 'Sinópse não encontrada'}</S.Overview>
 
             <S.BadgesContainer>
-              {genres.map((genre, index) => (
-                <Badge key={index}>{genre}</Badge>
-              ))}
+              {genres ? (
+                genres.map((genre, index) => <Badge key={index}>{genre}</Badge>)
+              ) : (
+                <Badge>Gênero(s) não encontrado(s)</Badge>
+              )}
             </S.BadgesContainer>
           </S.DetailsContainer>
         </S.ContentContainer>

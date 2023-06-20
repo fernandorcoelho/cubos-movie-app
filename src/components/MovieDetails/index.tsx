@@ -34,7 +34,7 @@ const MovieDetails: React.FC<MovieDetailsResponseDTO> = ({
       <S.ContentConatiner>
         <S.Header>
           <S.Title>{title ?? 'Título não encontrado'}</S.Title>
-          <S.ReleaseDate>{formatDate(release_date)}</S.ReleaseDate>
+          <S.ReleaseDate>{release_date ? formatDate(release_date) : '--/--/----'}</S.ReleaseDate>
         </S.Header>
 
         <S.Body>
@@ -49,41 +49,49 @@ const MovieDetails: React.FC<MovieDetailsResponseDTO> = ({
               <S.Table>
                 <S.TableCell>
                   <S.TableHeaderCell>Situação</S.TableHeaderCell>
-                  <S.TableItem>{getStatus(status)}</S.TableItem>
+                  <S.TableItem>{status ? getStatus(status) : '-'}</S.TableItem>
                 </S.TableCell>
                 <S.TableCell>
                   <S.TableHeaderCell>Idioma</S.TableHeaderCell>
-                  <S.TableItem>{getLanguage(original_language)}</S.TableItem>
+                  <S.TableItem>
+                    {original_language ? getLanguage(original_language) : '-'}
+                  </S.TableItem>
                 </S.TableCell>
                 <S.TableCell>
                   <S.TableHeaderCell>Duração</S.TableHeaderCell>
-                  <S.TableItem>{formatTime(runtime)}</S.TableItem>
+                  <S.TableItem>{runtime ? formatTime(runtime) : '-'}</S.TableItem>
                 </S.TableCell>
                 <S.TableCell>
                   <S.TableHeaderCell>Orçamento</S.TableHeaderCell>
-                  <S.TableItem>{formatCurrency(budget)}</S.TableItem>
+                  <S.TableItem>{budget ? formatCurrency(budget) : '-'}</S.TableItem>
                 </S.TableCell>
                 <S.TableCell>
                   <S.TableHeaderCell>Receita</S.TableHeaderCell>
-                  <S.TableItem>{formatCurrency(revenue)}</S.TableItem>
+                  <S.TableItem>{revenue ? formatCurrency(revenue) : '-'}</S.TableItem>
                 </S.TableCell>
                 <S.TableCell>
                   <S.TableHeaderCell>Lucro</S.TableHeaderCell>
-                  <S.TableItem>{formatCurrency(revenue - budget)}</S.TableItem>
+                  <S.TableItem>
+                    {revenue && budget ? formatCurrency(revenue - budget) : '-'}
+                  </S.TableItem>
                 </S.TableCell>
               </S.Table>
             </S.SectionContainer>
 
             <S.Footer>
               <S.BadgesContainer>
-                {genres?.map((genre) => (
-                  <Badge key={genre.id}>{genre.name}</Badge>
-                ))}
+                {genres ? (
+                  genres?.map((genre) => <Badge key={genre.id}>{genre.name}</Badge>)
+                ) : (
+                  <Badge>Gênero(s) não encontrado(s)</Badge>
+                )}
               </S.BadgesContainer>
 
               <S.VoteAverageContainer>
                 <S.VoteAverageWrapper>
-                  <S.VoteAverageText>{getVoteAveragePercentage(vote_average)}</S.VoteAverageText>
+                  <S.VoteAverageText>
+                    {vote_average ? getVoteAveragePercentage(vote_average) : '-%'}
+                  </S.VoteAverageText>
                 </S.VoteAverageWrapper>
               </S.VoteAverageContainer>
             </S.Footer>
