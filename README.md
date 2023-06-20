@@ -41,20 +41,15 @@ O projeto foi construído com as seguintes tecnologias:
 
 A aplicação foi otimizada para oferecer a melhor experiência ao usuário, alcançando altas pontuações em Performance, Acessibilidade, Boas Práticas e SEO, conforme verificado pelo Lighthouse do Google Chrome.
 
+### Performance Desktop
 <p align="center">
   <img src="public/images/github/lighthouse-desktop.png" alt="Lighthouse Desktop Results">
 </p>
+
+### Performance Mobile
 <p align="center">
   <img src="public/images/github/lighthouse-mobile.png" alt="Lighthouse Mobile Results">
 </p>
-
-## 🎓 Aprendizado
-
-Durante o desenvolvimento deste projeto, tive a oportunidade de melhorar minhas habilidades em React e TypeScript. Também aprendi como otimizar uma aplicação para obter as melhores pontuações no Lighthouse, e como configurar um Progressive Web App.
-
-## 🤝 Contribuições
-
-Contribuições, problemas e solicitações de recursos são bem-vindos! Sinta-se à vontade para verificar a página [Issues](https://github.com/fernandorcoelho/cubos-movies-app/issues) do projeto.
 
 ## 📧 Contato
 
