@@ -11,8 +11,6 @@ interface VideoResultsProps {
 
 export type StatusProps = 'Released' | 'In Production' | 'Post Production' | 'Canceled' | 'Rumored';
 
-type TranslatedStatusProps = 'Lançado' | 'cancelado' | 'Em Produção' | 'Pós Produção' | 'Previsto';
-
 export interface MovieDetailsResponseDTO {
   title: string;
   overview: string;
