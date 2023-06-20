@@ -32,6 +32,10 @@ export const Title = styled.h1`
   font-size: 2.2rem;
   font-weight: 600;
   color: ${({ theme }) => theme.colors.deepBlue};
+
+  @media screen and (min-width: 2000px) {
+    font-size: 4rem;
+  }
 `;
 
 export const ReleaseDate = styled.p`
@@ -86,6 +90,10 @@ export const Overview = styled.p`
   font-weight: 700;
   line-height: 140%;
   color: ${({ theme }) => theme.colors.gray.mediumGray};
+
+  @media screen and (min-width: 2000px) {
+    font-size: 1.4rem;
+  }
 `;
 
 export const Table = styled.div`
@@ -100,6 +108,10 @@ export const Table = styled.div`
     flex-direction: column;
     align-items: flex-start;
   }
+
+  @media screen and (max-width: 1440px) {
+    gap: 1em;
+  }
 `;
 
 export const TableHeaderCell = styled.div`
@@ -110,6 +122,10 @@ export const TableHeaderCell = styled.div`
 
   @media screen and (max-width: 800px) {
     text-align: left;
+  }
+
+  @media screen and (min-width: 2000px) {
+    font-size: 1.4rem;
   }
 `;
 
@@ -126,6 +142,10 @@ export const TableItem = styled.div`
 
   @media screen and (max-width: 800px) {
     text-align: left;
+  }
+
+  @media screen and (min-width: 2000px) {
+    font-size: 1.2rem;
   }
 `;
 

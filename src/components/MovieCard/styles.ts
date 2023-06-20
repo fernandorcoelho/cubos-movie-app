@@ -82,6 +82,10 @@ export const Title = styled.h2`
   font-weight: 100;
   margin-bottom: 5px;
   color: ${({ theme }) => theme.colors.turquoise};
+
+  @media screen and (min-width: 2000px) {
+    font-size: 3.4rem;
+  }
 `;
 
 export const VoteAverageContainer = styled.div`
@@ -147,6 +151,14 @@ export const Overview = styled.p`
   font-weight: 700;
   line-height: 140%;
   color: ${({ theme }) => theme.colors.gray.mediumGray};
+
+  @media screen and (min-width: 1440px) {
+    margin: auto;
+  }
+
+  @media screen and (min-width: 2000px) {
+    font-size: 1.4rem;
+  }
 `;
 
 export const BadgesContainer = styled.div`

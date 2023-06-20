@@ -15,4 +15,8 @@ export const Text = styled.span`
   font-family: 'Abel', sans-serif;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.deepBlue};
+
+  @media screen and (min-width: 2000px) {
+    font-size: 1.4rem;
+  }
 `;
