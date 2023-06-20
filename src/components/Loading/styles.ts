@@ -25,7 +25,7 @@ export const Spinner = styled.div`
   animation: ${rotate} 2s linear infinite;
 
   ${({ theme }) => css`
-    border: 16px solid ${theme.colors.gray.bg};
-    border-top: 16px solid ${theme.colors.primary};
+    border: 16px solid ${theme.colors.gray.grayBackground};
+    border-top: 16px solid ${theme.colors.deepBlue};
   `}
 `;

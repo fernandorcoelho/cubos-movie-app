@@ -9,10 +9,10 @@ export const Container = styled.header`
   height: 70px;
   margin-bottom: 60px;
 
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.deepBlue};
 `;
 
 export const Title = styled.h1`
-  color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.turquoise};
   font-weight: 100;
 `;

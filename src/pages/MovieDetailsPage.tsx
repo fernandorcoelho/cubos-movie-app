@@ -37,7 +37,6 @@ const MovieDetailsPage: React.FC = () => {
       });
 
       setMovieDetails(response);
-      console.log(response);
     } catch (error) {
       setError(error.message);
     } finally {
@@ -58,33 +57,33 @@ const MovieDetailsPage: React.FC = () => {
   // console.log('video src:', getVideoSrc(movieDetails?.videos?.results[0].key));
 
   if (error) {
-    return (
-      <Container>
-        {!(movieDetails && loading) && <Feedback>Nenhum filme foi encontrado</Feedback>}
-
-        {loading ? (
-          <Loading />
-        ) : (
-          <MovieDetails
-            title={movieDetails?.title}
-            release_date={movieDetails?.release_date}
-            budget={movieDetails?.budget}
-            genres={movieDetails?.genres}
-            original_language={movieDetails?.original_language}
-            overview={movieDetails?.overview}
-            poster_path={movieDetails?.poster_path}
-            revenue={movieDetails?.revenue}
-            runtime={movieDetails?.runtime}
-            status={movieDetails?.status}
-            videos={movieDetails?.videos}
-            vote_average={movieDetails?.vote_average}
-          />
-        )}
-      </Container>
-    );
+    return <Feedback>Um erro inesperado ocorreu! {error}</Feedback>;
   }
 
-  return loading ? <Loading /> : <div></div>;
+  return (
+    <Container>
+      {!movieDetails && !loading && <Feedback>Nenhum resultado foi encontrado</Feedback>}
+
+      {loading ? (
+        <Loading />
+      ) : (
+        <MovieDetails
+          title={movieDetails?.title}
+          release_date={movieDetails?.release_date}
+          budget={movieDetails?.budget}
+          genres={movieDetails?.genres}
+          original_language={movieDetails?.original_language}
+          overview={movieDetails?.overview}
+          poster_path={movieDetails?.poster_path}
+          revenue={movieDetails?.revenue}
+          runtime={movieDetails?.runtime}
+          status={movieDetails?.status}
+          videos={movieDetails?.videos}
+          vote_average={movieDetails?.vote_average}
+        />
+      )}
+    </Container>
+  );
 };
 
 export default MovieDetailsPage;

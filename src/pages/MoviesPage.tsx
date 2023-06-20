@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import Feedback from 'components/Feedback';
 import Loading from 'components/Loading';
@@ -27,8 +27,6 @@ const MoviesPage = () => {
     return <Feedback>Um erro inesperado ocorreu! {error}</Feedback>;
   }
 
-  // TODO encaixar as imagens, estão sendo cortadas.
-
   return (
     <Container>
       <SearchInput
@@ -45,18 +43,21 @@ const MoviesPage = () => {
         <Loading />
       ) : (
         <>
-          {displayedMovies.map((movie) => (
-            <MovieCard
-              key={movie?.id}
-              id={movie?.id}
-              genres={movie?.genres}
-              overview={movie?.overview}
-              poster_path={movie?.poster_path}
-              release_date={movie?.release_date}
-              title={movie?.title}
-              vote_average={movie?.vote_average}
-            />
-          ))}
+          {displayedMovies?.map((movie, index) => {
+            // console.log(movie?.id, index);
+            return (
+              <MovieCard
+                key={index}
+                id={movie?.id}
+                genres={movie?.genres}
+                overview={movie?.overview}
+                poster_path={movie?.poster_path}
+                release_date={movie?.release_date}
+                title={movie?.title}
+                vote_average={movie?.vote_average}
+              />
+            );
+          })}
 
           <Pagination />
         </>

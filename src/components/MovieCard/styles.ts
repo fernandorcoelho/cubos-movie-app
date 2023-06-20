@@ -34,7 +34,7 @@ export const Image = styled.div<ImageProps>`
     min-height: 750px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 601px) {
     max-width: 300px;
     min-height: 500px;
   }
@@ -49,7 +49,7 @@ export const ImageNotFound = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme }) => theme.colors.gray.bg};
+  background-color: ${({ theme }) => theme.colors.gray.grayBackground};
   width: 100%;
 
   @media screen and (max-width: 600px) {
@@ -57,7 +57,7 @@ export const ImageNotFound = styled.div`
     min-height: 750px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 601px) {
     max-width: 300px;
     min-height: 500px;
   }
@@ -70,7 +70,7 @@ export const ImageNotFound = styled.div`
 
 export const ImageNotFoundText = styled.span`
   text-align: center;
-  color: ${({ theme }) => theme.colors.gray.text};
+  color: ${({ theme }) => theme.colors.gray.mediumGray};
   font-weight: bold;
 `;
 
@@ -81,7 +81,7 @@ export const ContentContainer = styled.div`
   min-width: 0;
 `;
 
-export const Header = styled.header`
+export const Header = styled.div`
   position: relative;
 
   display: flex;
@@ -93,13 +93,13 @@ export const Header = styled.header`
 
   width: 100%;
   min-height: 70px;
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.deepBlue};
 `;
 
 export const Title = styled.h2`
   font-weight: 100;
   margin-bottom: 5px;
-  color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.turquoise};
 `;
 
 export const VoteAverageContainer = styled.div`
@@ -116,7 +116,7 @@ export const VoteAverageContainer = styled.div`
   height: 75px;
 
   border-radius: 100%;
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.deepBlue};
 `;
 
 export const VoteAverageWrapper = styled.div`
@@ -124,16 +124,16 @@ export const VoteAverageWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  width: 70px;
-  height: 70px;
+  width: 77px;
+  height: 77px;
 
   border-radius: 100%;
-  border: ${({ theme }) => `4px solid ${theme.colors.secondary}`};
+  border: ${({ theme }) => `4px solid ${theme.colors.turquoise}`};
 `;
 
 export const VoteAverageText = styled.h2`
   font-weight: 100;
-  color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.turquoise};
 `;
 
 export const DetailsContainer = styled.div`
@@ -145,9 +145,8 @@ export const DetailsContainer = styled.div`
   align-items: flex-start;
   justify-content: center;
 
-  padding: 20px 30px 60px;
-  line-height: 140%;
-  background-color: ${({ theme }) => theme.colors.gray.bg};
+  padding: 40px 30px 60px;
+  background-color: ${({ theme }) => theme.colors.gray.grayBackground};
 `;
 
 export const Date = styled.p`
@@ -158,13 +157,14 @@ export const Date = styled.p`
 
   font-weight: 400;
   font-size: 1rem;
-  color: ${({ theme }) => theme.colors.gray.date};
+  color: ${({ theme }) => theme.colors.gray.darkGray};
 `;
 
 export const Overview = styled.p`
   margin: auto;
   font-weight: 700;
-  color: ${({ theme }) => theme.colors.gray.text};
+  line-height: 140%;
+  color: ${({ theme }) => theme.colors.gray.mediumGray};
 `;
 
 export const BadgesContainer = styled.div`
@@ -172,21 +172,9 @@ export const BadgesContainer = styled.div`
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-
   margin-top: auto;
-`;
 
-export const Badge = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5px 10px;
-
-  border-radius: 50px;
-  background-color: white;
-  border: 2px solid ${({ theme }) => theme.colors.primary};
-`;
-
-export const BadgeText = styled.h4`
-  color: ${({ theme }) => theme.colors.primary};
+  @media screen and (max-width: 992px) {
+    margin-top: 20px;
+  }
 `;

@@ -10,6 +10,7 @@ const api = axios.create({
   },
   params: {
     include_adult: false,
+    include_video: true,
     language: 'pt-BR',
     api_key: apiConfig.apiKey,
   },

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import Badge from 'components/Badge';
 import { MovieProps } from 'interfaces/moviesResponseDTO';
 import { formatDate } from 'utils/formatDate';
 import { getPosterSrc } from 'utils/getPosterSrc';
@@ -54,9 +55,7 @@ const MovieCard: React.FC<MovieProps> = ({
 
             <S.BadgesContainer>
               {genres.map((genre) => (
-                <S.Badge key={genre}>
-                  <S.BadgeText>{genre}</S.BadgeText>
-                </S.Badge>
+                <Badge key={genre}>{genre}</Badge>
               ))}
             </S.BadgesContainer>
           </S.DetailsContainer>

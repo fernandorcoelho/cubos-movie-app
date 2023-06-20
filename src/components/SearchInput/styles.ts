@@ -11,11 +11,11 @@ export const Input = styled.input<StyledInputProps>`
   width: 100%;
 
   ${({ theme }) => css`
-    background-color: ${theme.colors.gray.bg};
-    color: ${theme.colors.gray.text};
+    background-color: ${theme.colors.gray.grayBackground};
+    color: ${theme.colors.gray.mediumGray};
 
     ::placeholder {
-      color: ${theme.colors.input};
+      color: ${theme.colors.skyBlue};
     }
   `}
 `;

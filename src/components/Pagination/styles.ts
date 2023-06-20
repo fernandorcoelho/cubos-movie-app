@@ -16,7 +16,7 @@ export const PageButtonText = styled.span`
 `;
 
 export const PageButton = styled.button`
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.deepBlue};
   font-family: 'Abel', sans-serif;
 
   padding: 15px 20px;
@@ -33,7 +33,7 @@ export const PageButton = styled.button`
   }
 
   &:not(:disabled):hover {
-    background-color: ${({ theme }) => theme.colors.primary};
+    background-color: ${({ theme }) => theme.colors.deepBlue};
     opacity: 0.9;
   }
 `;
