@@ -11,6 +11,8 @@ export const Container = styled.div`
   border: 2px solid ${({ theme }) => theme.colors.deepBlue};
 `;
 
-export const Text = styled.h4`
+export const Text = styled.span`
+  font-family: 'Abel', sans-serif;
+  font-weight: 700;
   color: ${({ theme }) => theme.colors.deepBlue};
 `;

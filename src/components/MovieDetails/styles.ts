@@ -38,6 +38,8 @@ export const ReleaseDate = styled.p`
   font-weight: 400;
   font-size: 1.2rem;
   color: ${({ theme }) => theme.colors.gray.darkGray};
+
+  padding-left: 20px;
 `;
 
 export const Body = styled.div`
@@ -52,10 +54,15 @@ export const Body = styled.div`
 export const DetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   gap: 40px;
   background-color: ${({ theme }) => theme.colors.gray.extraLightGray};
 
   padding: 40px 20px 20px 50px;
+
+  @media screen and (min-width: 1024px) {
+    width: 80%;
+  }
 `;
 
 export const SectionContainer = styled.aside`
@@ -171,60 +178,38 @@ export const VoteAverageText = styled.h2`
   color: ${({ theme }) => theme.colors.turquoise};
 `;
 
-export const Image = styled.div<ImageProps>`
-  background-image: url(${({ src }) => src});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+export const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (min-width: 1024px) {
+    width: 40%;
+  }
+`;
+
+export const Image = styled.img<ImageProps>`
+  height: 100%;
   width: 100%;
-
-  @media screen and (max-width: 1024px) {
-    aspect-ratio: 2/3;
-  }
-
-  @media screen and (max-width: 600px) {
-    min-height: 750px;
-  }
-
-  @media screen and (min-width: 601px) {
-    min-height: 500px;
-  }
-
-  @media screen and (min-width: 1500px) {
-    max-width: 700px;
-    min-height: 700px;
-    aspect-ratio: 2/3;
-  }
+  object-fit: cover;
 `;
 
 export const ImageNotFound = styled.div`
   display: flex;
-  align-items: center;
   justify-content: center;
-  background-color: ${({ theme }) => theme.colors.gray.grayBackground};
-  width: 100%;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.skyBlue};
+  height: 200px;
 
-  @media screen and (max-width: 1024px) {
-    aspect-ratio: 2/3;
-  }
-
-  @media screen and (max-width: 600px) {
-    min-height: 750px;
-  }
-
-  @media screen and (min-width: 601px) {
-    min-height: 500px;
-  }
-
-  @media screen and (min-width: 1500px) {
-    max-width: 700px;
-    min-height: 700px;
-    aspect-ratio: 2/3;
+  @media screen and (min-width: 1024px) {
+    width: 40%;
+    height: auto;
   }
 `;
 
 export const ImageNotFoundText = styled.span`
+  font-size: 1.4rem;
   text-align: center;
-  color: ${({ theme }) => theme.colors.gray.mediumGray};
+  color: white;
   font-weight: bold;
 `;

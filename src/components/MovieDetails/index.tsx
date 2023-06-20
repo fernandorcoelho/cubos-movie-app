@@ -98,7 +98,12 @@ const MovieDetails: React.FC<MovieDetailsResponseDTO> = ({
           </S.DetailsContainer>
 
           {!!poster_path ? (
-            <S.Image src={getPosterSrc(IMAGE_WIDTH, poster_path)} />
+            <S.ImageContainer>
+              <S.Image
+                src={getPosterSrc(IMAGE_WIDTH, poster_path)}
+                alt={`Poster do filme ${title}`}
+              />
+            </S.ImageContainer>
           ) : (
             <S.ImageNotFound>
               <S.ImageNotFoundText>Imagem não encontrada</S.ImageNotFoundText>

@@ -30,7 +30,12 @@ const MovieCard: React.FC<MovieProps> = ({
     <S.MovieCardContainer onClick={goToMovieDetailsPage}>
       <S.Container>
         {!!poster_path ? (
-          <S.Image src={getPosterSrc(IMAGE_WIDTH, poster_path)} />
+          <S.ImageContainer>
+            <S.Image
+              src={getPosterSrc(IMAGE_WIDTH, poster_path)}
+              alt={`Poster do filme ${title}`}
+            />
+          </S.ImageContainer>
         ) : (
           <S.ImageNotFound>
             <S.ImageNotFoundText>Imagem não encontrada</S.ImageNotFoundText>

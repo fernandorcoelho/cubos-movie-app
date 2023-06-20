@@ -22,37 +22,37 @@ export const Container = styled.div`
   }
 `;
 
-export const Image = styled.div<ImageProps>`
-  background-image: url(${({ src }) => src});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  aspect-ratio: 2/3;
+export const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  @media screen and (min-width: 1400px) {
-    max-width: 500px;
+  @media screen and (min-width: 1024px) {
+    width: 40%;
   }
+`;
+
+export const Image = styled.img<ImageProps>`
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 `;
 
 export const ImageNotFound = styled.div`
   display: flex;
-  align-items: center;
   justify-content: center;
-  background-color: ${({ theme }) => theme.colors.gray.grayBackground};
-  width: 100%;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.skyBlue};
 
-  aspect-ratio: 2/3;
-
-  @media screen and (min-width: 1400px) {
-    max-width: 500px;
+  @media screen and (min-width: 1024px) {
+    width: 40%;
   }
 `;
 
 export const ImageNotFoundText = styled.span`
   font-size: 1.4rem;
   text-align: center;
-  color: ${({ theme }) => theme.colors.gray.mediumGray};
+  color: white;
   font-weight: bold;
 `;
 
@@ -143,7 +143,7 @@ export const Date = styled.p`
 `;
 
 export const Overview = styled.p`
-  margin: auto;
+  margin: 28px auto;
   font-weight: 700;
   line-height: 140%;
   color: ${({ theme }) => theme.colors.gray.mediumGray};
