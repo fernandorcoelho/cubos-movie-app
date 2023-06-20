@@ -1,7 +1,7 @@
 # Cubos Movies App 
 
 <p align="center">
-  <img src="URL-DA-LOGO" alt="Logo" width="200" height="200">
+  <img src="%PUBLIC_URL%/images/github/branding.png" alt="Logo" width="200" height="200">
 </p>
 
 Cubos Movies App é uma aplicação de pesquisa de filmes que utiliza a API do TheMovieDB. Este projeto foi desenvolvido para um desafio da Cubos Tecnologia.
