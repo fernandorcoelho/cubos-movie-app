@@ -54,8 +54,8 @@ const MovieCard: React.FC<MovieProps> = ({
             <S.Overview>{!!overview ? overview : 'Sinópse não encontrada'}</S.Overview>
 
             <S.BadgesContainer>
-              {genres.map((genre) => (
-                <Badge key={genre}>{genre}</Badge>
+              {genres.map((genre, index) => (
+                <Badge key={index}>{genre}</Badge>
               ))}
             </S.BadgesContainer>
           </S.DetailsContainer>
