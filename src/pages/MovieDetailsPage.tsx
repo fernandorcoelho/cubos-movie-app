@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import Feedback from 'components/Feedback';
@@ -16,12 +16,13 @@ const MovieDetailsPage: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const fetchMovieDetails = async () => {
+  const fetchMovieDetails = useCallback(async () => {
     setLoading(true);
     try {
       const response: MovieDetailsResponseDTO = await api.get(`/movie/${id}`, {
         params: {
           language: 'pt-BR',
+          append_to_response: 'videos',
         },
       });
 
@@ -31,7 +32,7 @@ const MovieDetailsPage: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchMovieDetails();
@@ -52,7 +53,7 @@ const MovieDetailsPage: React.FC = () => {
       {!movieDetails && !loading && <Feedback>Nenhum resultado foi encontrado</Feedback>}
 
       {loading ? (
-        <Loading />
+        <Loading>Carregando filme...</Loading>
       ) : (
         <MovieDetails
           title={movieDetails?.title}

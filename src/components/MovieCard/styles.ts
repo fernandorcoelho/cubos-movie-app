@@ -142,7 +142,7 @@ export const Date = styled.p`
   z-index: 1;
 
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: ${({ theme }) => theme.colors.gray.darkGray};
 `;
 

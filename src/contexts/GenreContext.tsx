@@ -22,8 +22,10 @@ export const GenreProvider: React.FC<GenreProviderProps> = ({ children }) => {
 
   const getGenreList = async () => {
     setLoading(true);
+
     try {
       const { genres }: GenresReponseDTO = await api.get('/genre/movie/list');
+
       setGenres(genres);
     } catch (error) {
       setError(error.message);

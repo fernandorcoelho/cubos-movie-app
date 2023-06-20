@@ -110,7 +110,6 @@ export const MovieProvider: React.FC<MovieProviderProps> = ({ children }) => {
   const searchMovies = async (searchQuery: string) => {
     setPage(1);
     setQuery(searchQuery);
-    await fetchMovies();
   };
 
   return (

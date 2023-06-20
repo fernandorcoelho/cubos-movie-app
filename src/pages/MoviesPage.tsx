@@ -6,14 +6,28 @@ import MovieCard from 'components/MovieCard';
 import Pagination from 'components/Pagination';
 import { SearchInput } from 'components/SearchInput';
 import useDebounce from 'hooks/useDebounce';
+import { useGenres } from 'hooks/useGenres';
 import { useMovies } from 'hooks/useMovies';
 import { Container } from 'styles/MoviesPage';
 
 const MoviesPage = () => {
-  const { displayedMovies, loading, error, searchMovies } = useMovies();
+  const { displayedMovies, loading: loadingMovies, error, searchMovies } = useMovies();
+  const { loading: loadingGenres } = useGenres();
   const [query, setQuery] = useState('');
 
   const debounceQuery = useDebounce(query, 800);
+
+  const loading = loadingGenres || loadingMovies;
+
+  const loadingText: () => string = () => {
+    if (loadingGenres) {
+      return 'Carregando gêneros...';
+    }
+
+    if (loadingMovies) {
+      return 'Carregando filmes...';
+    }
+  };
 
   useEffect(() => {
     searchMovies(debounceQuery);
@@ -53,7 +67,7 @@ const MoviesPage = () => {
       )}
 
       {loading ? (
-        <Loading />
+        <Loading>{loadingText()}</Loading>
       ) : (
         <>
           {displayedMovies?.map((movie) => (

@@ -4,10 +4,14 @@ import FeedbackText from 'components/FeedbackText';
 
 import { Container, Spinner } from './styles';
 
-const Loading: React.FC = () => {
+interface LoadingProps {
+  children?: React.ReactNode;
+}
+
+const Loading: React.FC<LoadingProps> = ({ children }) => {
   return (
     <Container>
-      <FeedbackText>Carregando...</FeedbackText>
+      <FeedbackText>{children ?? 'Carregando...'}</FeedbackText>
       <Spinner />
     </Container>
   );
