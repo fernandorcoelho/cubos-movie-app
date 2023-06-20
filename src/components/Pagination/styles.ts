@@ -27,7 +27,7 @@ export const PageButtonText = styled.span<PageButtonProps>`
   color: ${({ theme, isCurrentPage }) =>
     `${isCurrentPage ? theme.colors.turquoise : theme.colors.deepBlue}`};
   font-size: 1.6rem;
-  font-weight: 100;
+  font-weight: 400;
   transition: color 0.2s;
 `;
 
