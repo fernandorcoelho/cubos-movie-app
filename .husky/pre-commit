@@ -1,0 +1,39 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo '🏗️👷 Validação Husky'
+
+# Check Prettier standards
+npm run check-format ||
+(
+    echo 'Erro na formatação - Verifique os arquivos listadas acima.';
+    false;
+)
+
+# Check ESLint Standards
+npm run check-lint ||
+(
+    echo 'Erro no lint - Faça as alterações necessárias listadas acima.'
+    false;
+)
+
+# Check tsconfig standards
+npm run check-types ||
+(
+    echo 'Erro nos Types - Verifique os arquivos listadas acima.'
+    false;
+)
+
+# If everything passes... Now we can commit
+# echo '🤔🤔🤔🤔... Alright.... Code looks good to me... Trying to build now. 🤔🤔🤔🤔'
+
+# npm run build ||
+# (
+#     echo '❌👷🔨❌ Better call Bob... Because your build failed ❌👷🔨❌
+#             Next build failed: View the errors above to see why.
+#     '
+#     false;
+# )
+
+# If everything passes... Now we can commit
+echo '✅✅✅✅ Realizando commit... ✅✅✅✅'
