@@ -55,4 +55,7 @@ A aplicação foi otimizada para oferecer a melhor experiência ao usuário, alc
 
 Fernando Rodrigues Coelho - fernando.ufv14@gmail.com
 
-Projeto Link: [https://github.com/fernandorcoelho/cubos-movies-app](https://github.com/fernandorcoelho/cubos-movies-app)
+Link do projeto: [https://github.com/fernandorcoelho/cubos-movies-app](https://github.com/fernandorcoelho/cubos-movies-app)
+
+Feito com 💜
+
