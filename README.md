@@ -53,6 +53,6 @@ A aplicação foi otimizada para oferecer a melhor experiência ao usuário, alc
 
 ## 📧 Contato
 
-Seu Nome - fernando.ufv14@gmail.com
+Fernando Rodrigues Coelho - fernando.ufv14@gmail.com
 
 Projeto Link: [https://github.com/fernandorcoelho/cubos-movies-app](https://github.com/fernandorcoelho/cubos-movies-app)
