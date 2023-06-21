@@ -20,12 +20,11 @@ Para executar o projeto, siga as seguintes instruções:
 
 Para baixar a aplicação em PWA, siga as etapas abaixo:
 
-1. Em `index.tsx`, troque `serviceWorkerRegistration.unregister()` por `serviceWorkerRegistration.register()`, caso queira que a aplicação carregue mais rapidamente.
-2. Execute `npm run build` para fazer gerar a build do projeto.
-3. Execute `npm run serve-build` para acessar o projeto na URL https://localhost:3000/
-4. Acesse a URL do build no seu navegador.
-5. No canto direito da barra de URL, você deve ver um ícone de download ou um símbolo '+'.
-6. Clique neste ícone e confirme que você quer instalar o aplicativo.
+1. Execute `npm run build` para fazer gerar a build do projeto.
+2. Execute `npm run serve-build` para acessar o projeto na URL https://localhost:3000/
+3. Acesse a URL do build no seu navegador.
+4. No canto direito da barra de URL, você deve ver um ícone de download ou um símbolo '+'.
+5. Clique neste ícone e confirme que você quer instalar o aplicativo.
 
 ## 🛠 Características do projeto
 
