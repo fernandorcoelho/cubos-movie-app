@@ -1,10 +1,10 @@
-# Cubos Movies App 🎬
+# Movies App 🎬
 
 <p align="center">
   <img src="public/images/github/branding.png" alt="Logo">
 </p>
 
-Cubos Movies App é uma aplicação de pesquisa de filmes construída com React e TypeScript, utilizando a API do TheMovieDB. Este projeto foi desenvolvido como parte de um desafio proposto pela Cubos Tecnologia.
+Movies App é uma aplicação de pesquisa de filmes construída com React e TypeScript, utilizando a API do TheMovieDB. Este projeto foi desenvolvido como parte de um desafio proposto pela Cubos Tecnologia.
 
 ## 🚀 Executando o projeto
 
@@ -56,6 +56,6 @@ Feito com 💜 por:
 
 Fernando Rodrigues Coelho - fernando.ufv14@gmail.com
 
-Link do projeto: [https://github.com/fernandorcoelho/cubos-movies-app](https://github.com/fernandorcoelho/cubos-movies-app)
+Link do projeto: [https://github.com/fernandorcoelho/movies-app](https://github.com/fernandorcoelho/movies-app)
 
 
