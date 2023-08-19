@@ -1,6 +1,6 @@
 # Movies App 🎬
 
-Movies App é uma aplicação de pesquisa de filmes construída com React e TypeScript, utilizando a API do TheMovieDB. Este projeto foi desenvolvido como parte de um desafio proposto pela Cubos Tecnologia.
+Movies App é uma aplicação de pesquisa de filmes construída com React e TypeScript, utilizando a API do TheMovieDB.
 
 ## 🚀 Executando o projeto
 
